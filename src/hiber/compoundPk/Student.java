@@ -6,6 +6,7 @@
 package hiber.compoundPk;
 
 import hiber.Address;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CollectionTable;
@@ -26,7 +27,7 @@ import org.hibernate.annotations.Type;
  * @author Samy
  */
 @Entity
-public class Student {
+public class Student implements Serializable {
     
     int id ;
 

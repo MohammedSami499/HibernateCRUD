@@ -5,6 +5,7 @@
  */
 package hiber;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
@@ -14,7 +15,7 @@ import javax.persistence.Embeddable;
  */
 
 @Embeddable
-public class Address {
+public class Address implements Serializable {
     
     private String state;
     private String city;
