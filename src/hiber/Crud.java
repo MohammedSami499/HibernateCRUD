@@ -5,6 +5,7 @@
  */
 package hiber;
 
+import ManyToMany.Centers;
 import data.Pojo;
 import data.Books;
 import data.Center;
@@ -181,11 +182,30 @@ public class Crud {
     }
     
     
+    
+    
      public void insertCenter(Center center) {
         Session se = NewHibernateUtil.getSessionFactory().openSession();
         try {
             se.beginTransaction();
             se.save(center);
+            se.getTransaction().commit();
+            System.out.println("Inserted successfully...");
+
+        } catch (HibernateException h) {
+            System.out.println("Error is : " + h.getMessage());
+            se.getTransaction().rollback();
+        } finally {
+            se.close();
+        }
+    }
+     
+      public void insertManyToMany(Centers center , Centers center2) {
+        Session se = NewHibernateUtil.getSessionFactory().openSession();
+        try {
+            se.beginTransaction();
+            se.save(center);
+            se.save(center2);
             se.getTransaction().commit();
             System.out.println("Inserted successfully...");
 

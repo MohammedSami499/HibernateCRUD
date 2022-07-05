@@ -54,5 +54,7 @@ Contributor(s):
     <mapping class="data.Books"/>
     <mapping class="data.Center"/>
     <mapping class="data.Course"/>
+    <mapping class="ManyToMany.Centers"/>
+    <mapping class="ManyToMany.Courses"/>
   </session-factory>
 </hibernate-configuration>

@@ -6,6 +6,8 @@
 package hiber;
 
 
+import ManyToMany.Centers;
+import ManyToMany.Courses;
 import data.Pojo;
 import data.Address;
 import data.Center;
@@ -48,20 +50,53 @@ public class Hiber {
 //        person.setBook(book);
 //        
 //        
-        Center center = new Center();
-        center.setCenterName("Al Rahma");
-        center.getCourses().add(new Course("Java"));
-        center.getCourses().add(new Course(".net"));
-        center.getCourses().add(new Course("Python"));
-        center.getCourses().add(new Course("MERN Stack"));
+//         Center center = new Center();
+//
+//        Course course1 = new Course();
+//        course1.setCourseName("MEAN Stack");
+//        course1.setCenter(center);
+//        
+//        Course course2 = new Course();
+//        course2.setCourseName("MEAN Stack");
+//        course2.setCenter(center);
+//        
+//        Course course3 = new Course();
+//        course3.setCourseName("MEAN Stack");
+//        course3.setCenter(center);
+//        
+//        Course course = new Course();
+//        course.setCourseName("MEAN Stack");
+//        course.setCenter(center);
+//       
+//        center.setCenterName("Al Rahma");
+//        center.getCourses().add(course1);
+//        center.getCourses().add(course);
+//        center.getCourses().add(course2);
+//        center.getCourses().add(course3);
 
-
+        Courses courses = new Courses();
+        Courses courses1 = new Courses();
+        
+        courses.setName("Java");
+        courses1.setName("Python");
+        
+        Centers centers = new Centers();
+        Centers centers1 = new Centers();
+        
+        centers.setName("GOOGLE");
+        centers1.setName("APPLE");
+        
+        centers.getCourses().add(courses1);
+        centers1.getCourses().add(courses);
+        
+        courses.getCenters().add(centers);
+        courses1.getCenters().add(centers1);
+        
         Crud crud = new Crud();
 //        crud.insert(pojo);
 //        crud.insertPerson(person);
 //        crud.insertBook(book);
-        crud.insertCenter(center);
-
+        crud.insertManyToMany(centers , centers1);
     }
     
 }

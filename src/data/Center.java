@@ -5,6 +5,7 @@
  */
 package data;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -18,7 +19,7 @@ import javax.persistence.OneToMany;
  * @author Samy
  */
 @Entity
-public class Center {
+public class Center implements Serializable {
     
     private int id;
     private String centerName;
@@ -43,7 +44,7 @@ public class Center {
         this.centerName = centerName;
     }
 
-    @OneToMany(cascade = CascadeType.ALL , targetEntity = Course.class)
+    @OneToMany(cascade = CascadeType.ALL , targetEntity = Course.class , mappedBy = "center")
     public List<Course> getCourses() {
         return courses;
     }
