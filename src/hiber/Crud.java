@@ -5,10 +5,11 @@
  */
 package hiber;
 
-import Association.Books;
-import Association.Person;
-import hiber.compoundPk.Student;
-import java.awt.print.Book;
+import data.Pojo;
+import data.Books;
+import data.Center;
+import data.Person;
+import data.Student;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
@@ -171,6 +172,23 @@ public class Crud {
             System.out.println(" book name : " + book.getBookName() + "  ||  " + " person name: " + book.getPerson().getName());
 
             // se.getTransaction().commit();
+        } catch (HibernateException h) {
+            System.out.println("Error is : " + h.getMessage());
+            se.getTransaction().rollback();
+        } finally {
+            se.close();
+        }
+    }
+    
+    
+     public void insertCenter(Center center) {
+        Session se = NewHibernateUtil.getSessionFactory().openSession();
+        try {
+            se.beginTransaction();
+            se.save(center);
+            se.getTransaction().commit();
+            System.out.println("Inserted successfully...");
+
         } catch (HibernateException h) {
             System.out.println("Error is : " + h.getMessage());
             se.getTransaction().rollback();

@@ -47,10 +47,12 @@ Contributor(s):
     <property name="hibernate.connection.username">smsm</property>
     <property name="hibernate.connection.password">smsm</property>
     <property name="hibernate.show_sql">true</property>
-    <property name="hibernate.hbm2ddl.auto">update</property>
-    <mapping class="hiber.Pojo"/>
-    <mapping class="hiber.compoundPk.Student"/>
-    <mapping class="Association.Person"/>
-    <mapping class="Association.Books"/>
+    <property name="hibernate.hbm2ddl.auto">create</property>
+    <mapping class="data.Pojo"/>
+    <mapping class="data.Student"/>
+    <mapping class="data.Person"/>
+    <mapping class="data.Books"/>
+    <mapping class="data.Center"/>
+    <mapping class="data.Course"/>
   </session-factory>
 </hibernate-configuration>

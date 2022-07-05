@@ -5,11 +5,11 @@
  */
 package hiber;
 
-import Association.Books;
-import Association.Person;
-import hiber.compoundPk.CompPk;
-import hiber.compoundPk.Student;
-import java.awt.print.Book;
+
+import data.Pojo;
+import data.Address;
+import data.Center;
+import data.Course;
 import java.util.Date;
 
 /**
@@ -48,12 +48,19 @@ public class Hiber {
 //        person.setBook(book);
 //        
 //        
+        Center center = new Center();
+        center.setCenterName("Al Rahma");
+        center.getCourses().add(new Course("Java"));
+        center.getCourses().add(new Course(".net"));
+        center.getCourses().add(new Course("Python"));
+        center.getCourses().add(new Course("MERN Stack"));
+
+
         Crud crud = new Crud();
-//        //crud.insert(pojo);
+//        crud.insert(pojo);
 //        crud.insertPerson(person);
-//        
 //        crud.insertBook(book);
-        crud.selectBook(4);
+        crud.insertCenter(center);
 
     }
     
